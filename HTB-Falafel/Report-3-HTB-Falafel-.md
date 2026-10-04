@@ -32,7 +32,7 @@ The compromise chain demonstrated how several individually distinct weaknesses c
 
 I started by enumerating exposed services with Nmap and saved the output so it could be reused later if deeper reconnaissance was required.
 
-![[Pasted image 20261003220734.png]]
+![Nmap enumeration](./evidence/Pasted%20image%2020261003220734.png)
 
 The scan identified:
 
@@ -41,7 +41,7 @@ The scan identified:
 
 Browsing to the web service revealed the Falafel Lovers application.
 
-![[Pasted image 20261003221018.png]]
+![Falafel Lovers web application](./evidence/Pasted%20image%2020261003221018.png)
 
 The page referenced the `falafel.htb` domain, so I added it to `/etc/hosts`:
 
@@ -51,7 +51,7 @@ echo "10.129.229.139 falafel.htb" | sudo tee -a /etc/hosts > /dev/null
 
 The login page appeared to be the most interesting attack surface, so I moved into web enumeration using Burp Suite and directory discovery.
 
-![[Pasted image 20261003222757.png]]
+![Login page](./evidence/Pasted%20image%2020261003222757.png)
 
 Directory enumeration identified `cyberlaw.txt`, which contained a useful hint from the application administrator:
 
@@ -77,7 +77,7 @@ This suggested two areas worth investigating further:
 
 I intercepted a login attempt in Burp Suite using test values for both parameters and saved the request for SQLMap analysis.
 
-![[Pasted image 20261003223733.png]]
+![Burp Suite login request](./evidence/Pasted%20image%2020261003223733.png)
 
 The request body was:
 
@@ -87,7 +87,7 @@ username=test&password=test
 
 SQLMap was then used against the captured request to test the login endpoint and enumerate the application's `users` table.
 
-![[Pasted image 20261003224012.png]]
+![SQLMap enumeration](./evidence/Pasted%20image%2020261003224012.png)
 
 The database returned two user records:
 
@@ -121,7 +121,7 @@ d4ee02a22fc872e36d9e3751ba72ddc8:juggling
 
 I then authenticated as `chris`.
 
-![[Pasted image 20261003225713.png]]
+![Evidence](./evidence/Pasted%20image%2020261003225713.png)
 
 ### Impact
 
@@ -162,7 +162,7 @@ The flaw allowed authentication as the administrator without knowing the adminis
 
 Administrator access exposed an **Upload via URL** function.
 
-![[Pasted image 20261003230912.png]]
+![Evidence](./evidence/Pasted%20image%2020261003230912.png)
 
 I first confirmed that the server fetched attacker-controlled content by listening locally and providing a URL hosted from my attack machine.
 
@@ -178,7 +178,7 @@ GET /img.gif HTTP/1.1
 User-Agent: Wget/1.17.1 (linux-gnu)
 ```
 
-![[Pasted image 20261003232814.png]]
+![Evidence](./evidence/Pasted%20image%2020261003232814.png)
 
 Testing showed that the application truncated overly long filenames. This behaviour could be abused by supplying a filename containing a valid image extension after an executable `.php` extension. When the filename was truncated, the allowed trailing image extension was removed and the server retained an executable PHP file.
 
