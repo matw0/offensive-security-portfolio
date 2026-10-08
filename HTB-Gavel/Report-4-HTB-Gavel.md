@@ -1,4 +1,4 @@
-# Report 3 — HTB Gavel | Penetration Testing Assessment
+# Report 4 — HTB Gavel | Penetration Testing Assessment
 
 > [!info] Assessment status
 > **Training assessment:** Retired Hack The Box (HTB) laboratory machine. This document is a CWES-style practice report, not an assessment of a production system.
