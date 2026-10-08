@@ -331,27 +331,7 @@ The assessment demonstrates the importance of defence in depth: secure deploymen
 
 Remediation should prioritise eliminating the code-execution paths and reducing the privileges of components processing user-controlled input, while also addressing the SQL injection and exposed repository.
 
-## 8. Evidence Checklist Before Publication
-
-> [!warning] Missing from the uploaded ZIP
-> The following filenames are **already referenced in the original Markdown**, but the screenshots were **not present in the ZIP**. Their names have been preserved in this report. Copy the matching original files from your Obsidian vault into the `evidence/` folder beside this `.md` file if you want those images to render:
->
-> - `Pasted image 20261006202445.png`
-> - `Pasted image 20261006221907.png`
-> - `Pasted image 20261006222303.png`
-> - `Pasted image 20261007110408.png`
-> - `Pasted image 20261007114759.png` *(originally referenced during local shell/flag access; deliberately **not embedded** in this report pending a flag/redaction check)*
-
-Before publishing this report to GitHub:
-
-- [ ] Verify that all linked images in `./evidence/` render in Obsidian; original screenshot filenames should remain unchanged.
-- [ ] Redact any recovered passwords, password hashes where unnecessary, session tokens or HTB flags from screenshots and Markdown.
-- [ ] Capture or recover the missing rule-configuration step in F04, or retain its explicit evidence limitation.
-- [ ] Confirm that the assessment dates and any machine-IP changes are documented accurately.
-- [ ] Verify CVSS vectors against the actual privileges and impact demonstrated during the lab.
-- [ ] Keep personal scratch notes and machine flags out of the public-facing report.
-
-## 9. References and Classification Guidance
+## 8. References and Classification Guidance
 
 - [Hack The Box — Gavel](https://www.hackthebox.com/machines/gavel)
 - [FIRST — CVSS v3.1 Specification](https://www.first.org/cvss/v3-1/specification-document)
