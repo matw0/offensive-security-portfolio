@@ -411,7 +411,7 @@ objcopy: /opt/AV/periodic-checks/monitor: can't dump section '.text_sig'
 **Evidence gap:** The supplied notes jump from the failed signature validation to the later root shell. They do not include the intermediate steps that satisfied or bypassed the executable-signature check. Before writing the formal privilege-escalation finding, recover that missing transition from your shell history, notes or additional evidence. The final screenshot confirms the resulting access level, but it does not independently document the full method used.
 
 ---
-## Vulnerability Findings
+## 3.Vulnerability Findings
 | ID  | Finding                                                | Severity | CVSS v3.1 | CWE                                             |
 | --- | ------------------------------------------------------ | -------- | --------- | ----------------------------------------------- |
 | F01 | Username Enumeration via Authentication Responses      | Medium   | 5.3       | https://cwe.mitre.org/data/definitions/204.html |
